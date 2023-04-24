@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "453430486437",
+    "project_id": "psesmuiotproject",
+    "storage_bucket": "psesmuiotproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453430486437:android:ba641afce4b4e95431f44c",
+        "android_client_info": {
+          "package_name": "com.psesmuiot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "453430486437-c4tcpflmqq9gceuip6jr8nudpga8rkjd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.psesmuiot",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "453430486437-j4lfn4ntqi0bd60g02cp43dob0bn0jpt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJ--DpxEo9oFcoe9VMXNyG3_EapaljO88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "453430486437-j4lfn4ntqi0bd60g02cp43dob0bn0jpt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

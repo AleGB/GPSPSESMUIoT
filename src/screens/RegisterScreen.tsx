@@ -10,6 +10,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { RegisterStyles } from '../theme/RegisterTheme';
 import { FormsStyles } from '../theme/FormsTheme';
 import { useForm } from '../hooks/useForm';
+import { onRegister } from '../hooks/RegisterHook';
 
 interface Props extends StackScreenProps<any, any> { }
 
@@ -28,9 +29,15 @@ export const RegisterScreen = ({ navigation }: Props) => {
         password2: ''
     });
 
-    const onRegister = () => {
-        console.log({ nombres, apellidos, correo, edad, celular, estado, municipio, cp, password, password2 })
+    const handleSingUp = () => {
+        const formValues = { nombres, apellidos, correo, edad, celular, estado, municipio, cp, password, password2 }
+        onRegister(navigation, formValues);
+        // navigation.navigate('HomeScreen')
     }
+
+    // const onRegister = () => {
+    //     console.log({ nombres, apellidos, correo, edad, celular, estado, municipio, cp, password, password2 })
+    // }
 
     return (
         <>
@@ -55,7 +62,7 @@ export const RegisterScreen = ({ navigation }: Props) => {
                             // onChange y submit
                             onChangeText={(value) => onChange(value, 'nombres')}
                             value={nombres}
-                            onSubmitEditing={onRegister}
+                        // onSubmitEditing={onRegister}
 
                         />
 
@@ -66,7 +73,7 @@ export const RegisterScreen = ({ navigation }: Props) => {
                             // onChange y submit
                             onChangeText={(value) => onChange(value, 'apellidos')}
                             value={apellidos}
-                            onSubmitEditing={onRegister}
+                        // onSubmitEditing={onRegister}
 
                         />
 
@@ -78,7 +85,7 @@ export const RegisterScreen = ({ navigation }: Props) => {
                                 // onChange y submit
                                 onChangeText={(value) => onChange(value, 'correo')}
                                 value={correo}
-                                onSubmitEditing={onRegister}
+                            // onSubmitEditing={onRegister}
 
                             />
 
@@ -89,7 +96,7 @@ export const RegisterScreen = ({ navigation }: Props) => {
                                 // onChange y submit
                                 onChangeText={(value) => onChange(value, 'edad')}
                                 value={edad}
-                                onSubmitEditing={onRegister}
+                            // onSubmitEditing={onRegister}
 
                             />
                         </View>
@@ -102,7 +109,7 @@ export const RegisterScreen = ({ navigation }: Props) => {
                                 // onChange y submit
                                 onChangeText={(value) => onChange(value, 'celular')}
                                 value={celular}
-                                onSubmitEditing={onRegister}
+                            // onSubmitEditing={onRegister}
 
                             />
 
@@ -113,7 +120,7 @@ export const RegisterScreen = ({ navigation }: Props) => {
                                 // onChange y submit
                                 onChangeText={(value) => onChange(value, 'estado')}
                                 value={estado}
-                                onSubmitEditing={onRegister}
+                            // onSubmitEditing={onRegister}
 
                             />
                         </View>
@@ -126,7 +133,7 @@ export const RegisterScreen = ({ navigation }: Props) => {
                                 // onChange y submit
                                 onChangeText={(value) => onChange(value, 'municipio')}
                                 value={municipio}
-                                onSubmitEditing={onRegister}
+                            // onSubmitEditing={onRegister}
 
                             />
 
@@ -137,7 +144,7 @@ export const RegisterScreen = ({ navigation }: Props) => {
                                 // onChange y submit
                                 onChangeText={(value) => onChange(value, 'cp')}
                                 value={cp}
-                                onSubmitEditing={onRegister}
+                            // onSubmitEditing={onRegister}
 
                             />
                         </View>
@@ -149,7 +156,7 @@ export const RegisterScreen = ({ navigation }: Props) => {
                             // onChange y submit
                             onChangeText={(value) => onChange(value, 'password')}
                             value={password}
-                            onSubmitEditing={onRegister}
+                        // onSubmitEditing={onRegister}
 
                         />
 
@@ -160,13 +167,13 @@ export const RegisterScreen = ({ navigation }: Props) => {
                             // onChange y submit
                             onChangeText={(value) => onChange(value, 'password2')}
                             value={password2}
-                            onSubmitEditing={onRegister}
+                        // onSubmitEditing={onRegister}
 
                         />
                     </View>
 
                     <View style={GlobalStyles.buttonContainerLogin}>
-                        <ButtonElement title='Registrarme' onPress={() => navigation.navigate('HomeScreen')} />
+                        <ButtonElement title='Registrarme' onPress={handleSingUp} />
                     </View>
 
                     <View style={LoginStyles.newAcountView}>
@@ -183,3 +190,4 @@ export const RegisterScreen = ({ navigation }: Props) => {
         </>
     )
 }
+

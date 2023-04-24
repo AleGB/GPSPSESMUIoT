@@ -8,8 +8,12 @@ import { EditScreen } from '../screens/EditScreen';
 import { AddDeviceScreen } from '../screens/AddDeviceScreen';
 import { LocationHistoryScreen } from '../screens/LocationHistoryScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { StackScreenProps } from '@react-navigation/stack';
+import { outLogin } from '../hooks/LoginHook';
+import { LoginScreen } from '../screens/LoginScreen';
 
 const Drawer = createDrawerNavigator();
+// interface Props extends StackScreenProps<any, any> { }
 
 export const Menu = () => {
 
@@ -21,10 +25,11 @@ export const Menu = () => {
             drawerStyle: { backgroundColor: 'white' },
             headerStyle: { height: 40 },
             headerTitleAlign: 'center',
-            headerTitleStyle: { fontSize: 10, color: 'black' }
+            headerTitleStyle: { fontSize: 10, color: 'black' },
         }}>
 
             <Drawer.Screen name="Navigator" options={{ headerShown: false }} component={Navigator} />
+            {/* <Drawer.Screen name="LoginScreen"  component={LoginScreen} /> */}
             <Drawer.Screen name="HomeScreen" options={{ title: "Dispositivos registrados" }} component={HomeScreen} />
             <Drawer.Screen name="EditScreen" options={{ title: "Editar información" }} component={EditScreen} />
             <Drawer.Screen name="AddDeviceScreen" options={{ title: "Vincular dispositivo" }} component={AddDeviceScreen} />
@@ -64,7 +69,10 @@ const MenuContent = ({ navigation }: DrawerContentComponentProps) => {
                     <Text style={MenuStyles.menuText}>Historial de ubicaciones</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={MenuStyles.menuButton} onPress={() => navigation.navigate('LoginScreen')}>
+                <TouchableOpacity style={MenuStyles.menuButton} onPress={() => {
+                    outLogin(navigation);
+                    // return navigation.navigate('Navigator')
+                }}>
                     <Icon name="log-out-outline" size={20} color={"#000000"} style={{ margin: 5 }} />
                     <Text style={MenuStyles.menuText}>Cerrar sesión</Text>
                 </TouchableOpacity>
@@ -72,3 +80,7 @@ const MenuContent = ({ navigation }: DrawerContentComponentProps) => {
         </DrawerContentScrollView>
     );
 }
+
+// export const out = ({ navigation }: Props) => {
+//     outLogin(navigation);
+// }
