@@ -22,8 +22,8 @@ export const GlobalStyles = StyleSheet.create({
         alignSelf: 'center'
     },
     logoContainer: {
-        height: '8%',
-        backgroundColor: '#F7A88E',
+        height: 60,
+        backgroundColor: '#BA90C6',
         justifyContent: 'center'
     },
     iconLocation: {
@@ -88,9 +88,9 @@ export const GlobalStyles = StyleSheet.create({
         alignItems: 'center',
     },
     buttonStyleIOS: {
-        backgroundColor: '#F7A88E',
+        backgroundColor: '#C0DBEA',
         borderWidth: 2,
-        borderColor: '#F7A88E',
+        borderColor: '#BA90C6',
         paddingHorizontal: 10,
         paddingVertical: 5,
         borderRadius: 20,
@@ -105,9 +105,9 @@ export const GlobalStyles = StyleSheet.create({
         elevation: 4,
     },
     buttonStyleAndroid: {
-        backgroundColor: '#F7A88E',
+        backgroundColor: '#C0DBEA',
         borderWidth: 2,
-        borderColor: '#F7A88E',
+        borderColor: '#BA90C6',
         paddingHorizontal: 10,
         paddingVertical: 5,
         borderRadius: 10,
@@ -121,6 +121,7 @@ export const GlobalStyles = StyleSheet.create({
 
         elevation: 4,
     },
+    
     buttonText: {
         fontSize: 20,
         color: 'white',
