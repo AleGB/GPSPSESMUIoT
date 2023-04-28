@@ -10,13 +10,11 @@ import { useForm } from '../hooks/useForm';
 import { editInfo, getInfo } from '../hooks/EditHook';
 import { firebase } from '@react-native-firebase/auth';
 
-interface Props extends StackScreenProps<any, any> { }
-
-export const EditScreen = ({ navigation }: Props) => {
+export const EditScreen = () => {
 
     const currentUser = firebase.auth().currentUser;
+
     if (currentUser) {
-        const [data, setData] = useState<any>({});
         const [userData, setUserData] = useState({
             nombres: '',
             apellidos: '',

@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Platform, KeyboardAvoidingView } from 'react-native';
+import { View, Text } from 'react-native';
 import { BackgroundImage } from '../components/BackgroundImage';
 import { LoginStyles } from '../theme/LoginTheme';
 import { Logo } from '../components/Logo';
-import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { GlobalStyles } from '../theme/GlobalTheme';
 import { ButtonElement } from '../components/ButtonElement';
 import { StackScreenProps } from '@react-navigation/stack';
-import { FormsStyles } from '../theme/FormsTheme';
-import { useForm } from '../hooks/useForm';
-import { onLogin } from '../hooks/LoginHook';
+import { HomeScreen } from './HomeScreen';
 //Firebase
 import auth from '@react-native-firebase/auth';
-import { LogoEncabezado } from '../components/LogoEncabezado';
-import { ButtonElement2 } from '../components/ButtonElement2';
-import { HomeScreen } from './HomeScreen';
 
 interface Props extends StackScreenProps<any, any> { }
 interface User {
@@ -69,7 +63,7 @@ export const InicioScreen = ({ navigation }: Props) => {
         )
     } else {
         return (
-            <HomeScreen/>
+            navigation.navigate('HomeScreen')
         )
     }
 

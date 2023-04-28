@@ -11,9 +11,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { StackScreenProps } from '@react-navigation/stack';
 import { outLogin } from '../hooks/LoginHook';
 import { LoginScreen } from '../screens/LoginScreen';
+import { MapsScreen } from '../screens/MapsScreen';
 
 const Drawer = createDrawerNavigator();
-// interface Props extends StackScreenProps<any, any> { }
 
 export const Menu = () => {
 
@@ -29,11 +29,11 @@ export const Menu = () => {
         }}>
 
             <Drawer.Screen name="Navigator" options={{ headerShown: false }} component={Navigator} />
-            {/* <Drawer.Screen name="LoginScreen"  component={LoginScreen} /> */}
             <Drawer.Screen name="HomeScreen" options={{ title: "Dispositivos registrados" }} component={HomeScreen} />
             <Drawer.Screen name="EditScreen" options={{ title: "Editar información" }} component={EditScreen} />
             <Drawer.Screen name="AddDeviceScreen" options={{ title: "Vincular dispositivo" }} component={AddDeviceScreen} />
             <Drawer.Screen name="LocationHistoryScreen" options={{ title: "Historial de ubicaciones" }} component={LocationHistoryScreen} />
+            <Drawer.Screen name="MapsScreen" options={{ title: "Mapa" }} component={MapsScreen} />
         </Drawer.Navigator>
     );
 }
@@ -80,7 +80,3 @@ const MenuContent = ({ navigation }: DrawerContentComponentProps) => {
         </DrawerContentScrollView>
     );
 }
-
-// export const out = ({ navigation }: Props) => {
-//     outLogin(navigation);
-// }
