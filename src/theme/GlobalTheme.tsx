@@ -22,14 +22,13 @@ export const GlobalStyles = StyleSheet.create({
         alignSelf: 'center'
     },
     logoContainer: {
-        height: 60,
-        backgroundColor: '#BA90C6',
-        justifyContent: 'center'
+        width: 750,
+        height: 110
     },
     iconLocation: {
-        alignItems: 'flex-end',
-        top: 20,
-        right: 117,
+        alignItems: 'center',
+        top: 70,
+        right: 60,
     },
     titleView: {
         paddingHorizontal: 25
@@ -42,7 +41,7 @@ export const GlobalStyles = StyleSheet.create({
         color: '#ffffff'
     },
     titleEncabezado: {
-        fontSize: 30,
+        fontSize: 5,
         fontWeight: 'normal',
         alignSelf: 'center',
         position: 'absolute',

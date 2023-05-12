@@ -34,6 +34,7 @@ export const Menu = () => {
             <Drawer.Screen name="AddDeviceScreen" options={{ title: "Vincular dispositivo" }} component={AddDeviceScreen} />
             <Drawer.Screen name="LocationHistoryScreen" options={{ title: "Historial de ubicaciones" }} component={LocationHistoryScreen} />
             <Drawer.Screen name="MapsScreen" options={{ title: "Mapa" }} component={MapsScreen} />
+            
         </Drawer.Navigator>
     );
 }

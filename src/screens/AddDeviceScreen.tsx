@@ -35,9 +35,9 @@ export const AddDeviceScreen = ({ navigation }: Props) => {
                         </View>
 
                         <View style={GlobalStyles.form}>
-                            <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorblack]}>ID del dispositivo</Text>
-                            <TextInput style={[GlobalStyles.txtInputAndroid, FormsStyles.txtInputcolorblack, (Platform.OS === 'ios') && GlobalStyles.txtInputIOS]}
-                                underlineColorAndroid="gray" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
+                            <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorgreen]}>ID del dispositivo</Text>
+                            <TextInput style={[GlobalStyles.txtInputAndroid, FormsStyles.txtInputcolorblackpink, (Platform.OS === 'ios') && GlobalStyles.txtInputIOS]}
+                                underlineColorAndroid="mediumpurple" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
 
                                 // onChange y submit
                                 onChangeText={(value) => onChange(value, 'idDispositivo')}
@@ -46,9 +46,9 @@ export const AddDeviceScreen = ({ navigation }: Props) => {
 
                             />
 
-                            <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorblack]}>Número de SIM</Text>
-                            <TextInput style={[GlobalStyles.txtInputAndroid, FormsStyles.txtInputcolorblack, (Platform.OS === 'ios') && FormsStyles.txtInputIOS]}
-                                keyboardType="numeric" underlineColorAndroid="gray" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
+                            <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorgreen]}>Número de SIM</Text>
+                            <TextInput style={[GlobalStyles.txtInputAndroid, FormsStyles.txtInputcolorblackpink, (Platform.OS === 'ios') && FormsStyles.txtInputIOS]}
+                                keyboardType="numeric" underlineColorAndroid="mediumpurple" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
 
                                 // onChange y submit
                                 onChangeText={(value) => onChange(value, 'SIM')}
@@ -57,9 +57,9 @@ export const AddDeviceScreen = ({ navigation }: Props) => {
 
                             />
 
-                            <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorblack]}>Nombre de la persona a localizar</Text>
-                            <TextInput style={[GlobalStyles.txtInputAndroid, FormsStyles.txtInputcolorblack, (Platform.OS === 'ios') && GlobalStyles.txtInputIOS]}
-                                underlineColorAndroid="gray" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
+                            <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorgreen]}>Nombre de la persona a localizar</Text>
+                            <TextInput style={[GlobalStyles.txtInputAndroid, FormsStyles.txtInputcolorblackpink, (Platform.OS === 'ios') && GlobalStyles.txtInputIOS]}
+                                underlineColorAndroid="mediumpurple" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
 
                                 // onChange y submit
                                 onChangeText={(value) => onChange(value, 'user')}
