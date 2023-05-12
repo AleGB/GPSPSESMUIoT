@@ -8,6 +8,18 @@ export const FormsStyles = StyleSheet.create({
     txtInputcolorblack:{
         color: 'black'
     },
+    txtInputcolorgreen:{
+        color: 'lightseagreen'
+    },
+    txtInputcolorpink:{
+        color: 'lightpink'
+    },
+    txtInputcolorpurple:{
+        color: 'mediumpurple'
+    },
+    txtInputcolorblackpink:{
+        color: 'mediumvioletred'
+    },
     txtInputAndroid: {
         fontSize: 15,
         top: 40,

@@ -71,7 +71,7 @@ export const LoginScreen = ({ navigation }: Props) => {
                         </View>
 
                         <View style={LoginStyles.passView}>
-                            <TouchableOpacity activeOpacity={0.2}>
+                            <TouchableOpacity activeOpacity={0.2} onPress={() => navigation.navigate('RecoverPass')}>
                                 <Text style={LoginStyles.passText}>¿Olvidaste tu contraseña?</Text>
                             </TouchableOpacity>
                         </View>

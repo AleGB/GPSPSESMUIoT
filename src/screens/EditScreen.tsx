@@ -74,9 +74,9 @@ export const EditScreen = () => {
                             </View>
 
                             <View style={GlobalStyles.form}>
-                                <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorblack, { width: '53%' }]}>Nombre(s)</Text>
-                                <TextInput style={[GlobalStyles.txtInputAndroid, FormsStyles.txtInputcolorblack, (Platform.OS === 'ios') && GlobalStyles.txtInputIOS]}
-                                    underlineColorAndroid="gray" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
+                                <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorpink, { width: '53%' }]}>Nombre(s)</Text>
+                                <TextInput style={[GlobalStyles.txtInputAndroid, FormsStyles.txtInputcolorpurple, (Platform.OS === 'ios') && GlobalStyles.txtInputIOS]}
+                                    underlineColorAndroid="lightblue" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
 
                                     // onChange y submit
                                     onChangeText={(value) => handleChange(value, 'nombres')}
@@ -85,9 +85,9 @@ export const EditScreen = () => {
 
                                 />
 
-                                <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorblack, { width: '53%' }]}>Apellidos</Text>
-                                <TextInput style={[GlobalStyles.txtInputAndroid, FormsStyles.txtInputcolorblack, (Platform.OS === 'ios') && GlobalStyles.txtInputIOS]}
-                                    underlineColorAndroid="gray" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
+                                <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorpink, { width: '53%' }]}>Apellidos</Text>
+                                <TextInput style={[GlobalStyles.txtInputAndroid, FormsStyles.txtInputcolorpurple, (Platform.OS === 'ios') && GlobalStyles.txtInputIOS]}
+                                    underlineColorAndroid="lightblue" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
 
                                     // onChange y submit
                                     onChangeText={(value) => handleChange(value, 'apellidos')}
@@ -98,14 +98,14 @@ export const EditScreen = () => {
 
 
                                 <View style={GlobalStyles.columsTitles}>
-                                    <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorblack, { width: '80%' }]}>Correo electrónico</Text>
+                                    <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorpink, { width: '80%' }]}>Correo electrónico</Text>
 
-                                    <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorblack, { width: '20%' }]}>Edad</Text>
+                                    <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorpink, { width: '20%' }]}>Edad</Text>
                                 </View>
 
                                 <View style={GlobalStyles.colums}>
-                                    <TextInput style={[FormsStyles.txtInputAndroidCorreo, FormsStyles.txtInputcolorblack, (Platform.OS === 'ios') && FormsStyles.txtInputIOSCorreo]}
-                                        keyboardType="email-address" underlineColorAndroid="gray" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
+                                    <TextInput style={[FormsStyles.txtInputAndroidCorreo, FormsStyles.txtInputcolorpurple, (Platform.OS === 'ios') && FormsStyles.txtInputIOSCorreo]}
+                                        keyboardType="email-address" underlineColorAndroid="lightblue" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
 
                                         // onChange y submit
                                         onChangeText={(value) => handleChange(value, 'correo')}
@@ -114,8 +114,8 @@ export const EditScreen = () => {
 
                                     />
 
-                                    <TextInput style={[FormsStyles.txtInputAndroidEdad, FormsStyles.txtInputcolorblack, (Platform.OS === 'ios') && FormsStyles.txtInputIOSEdad]}
-                                        keyboardType="numeric" underlineColorAndroid="gray" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
+                                    <TextInput style={[FormsStyles.txtInputAndroidEdad, FormsStyles.txtInputcolorpurple, (Platform.OS === 'ios') && FormsStyles.txtInputIOSEdad]}
+                                        keyboardType="numeric" underlineColorAndroid="lightblue" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
 
                                         // onChange y submit
                                         onChangeText={(value) => handleChange(value, 'edad')}
@@ -126,14 +126,14 @@ export const EditScreen = () => {
                                 </View>
 
                                 <View style={GlobalStyles.columsTitles}>
-                                    <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorblack, { width: '53%' }]}>Número de celular</Text>
+                                    <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorpink, { width: '53%' }]}>Número de celular</Text>
 
-                                    <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorblack, { width: '53%' }]}>Estado</Text>
+                                    <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorpink, { width: '53%' }]}>Estado</Text>
                                 </View>
 
                                 <View style={GlobalStyles.colums}>
-                                    <TextInput style={[FormsStyles.txtInputAndroid, FormsStyles.txtInputcolorblack, (Platform.OS === 'ios') && FormsStyles.txtInputIOS]}
-                                        keyboardType="numeric" underlineColorAndroid="gray" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
+                                    <TextInput style={[FormsStyles.txtInputAndroid, FormsStyles.txtInputcolorpurple, (Platform.OS === 'ios') && FormsStyles.txtInputIOS]}
+                                        keyboardType="numeric" underlineColorAndroid="lightblue" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
 
                                         // onChange y submit
                                         onChangeText={(value) => handleChange(value, 'celular')}
@@ -142,8 +142,8 @@ export const EditScreen = () => {
 
                                     />
 
-                                    <TextInput style={[FormsStyles.txtInputAndroid, FormsStyles.txtInputcolorblack, (Platform.OS === 'ios') && FormsStyles.txtInputIOS]}
-                                        underlineColorAndroid="gray" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
+                                    <TextInput style={[FormsStyles.txtInputAndroid, FormsStyles.txtInputcolorpurple, (Platform.OS === 'ios') && FormsStyles.txtInputIOS]}
+                                        underlineColorAndroid="lightblue" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
 
                                         // onChange y submit
                                         onChangeText={(value) => handleChange(value, 'estado')}
@@ -154,14 +154,14 @@ export const EditScreen = () => {
                                 </View>
 
                                 <View style={GlobalStyles.columsTitles}>
-                                    <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorblack, { width: '53%' }]}>Municipio</Text>
+                                    <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorpink, { width: '53%' }]}>Municipio</Text>
 
-                                    <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorblack, { width: '53%' }]}>Código Postal</Text>
+                                    <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorpink, { width: '53%' }]}>Código Postal</Text>
                                 </View>
 
                                 <View style={GlobalStyles.colums}>
-                                    <TextInput style={[FormsStyles.txtInputAndroid, FormsStyles.txtInputcolorblack, (Platform.OS === 'ios') && FormsStyles.txtInputIOS]}
-                                        underlineColorAndroid="gray" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
+                                    <TextInput style={[FormsStyles.txtInputAndroid, FormsStyles.txtInputcolorpurple, (Platform.OS === 'ios') && FormsStyles.txtInputIOS]}
+                                        underlineColorAndroid="lightblue" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
 
                                         // onChange y submit
                                         onChangeText={(value) => handleChange(value, 'municipio')}
@@ -170,8 +170,8 @@ export const EditScreen = () => {
 
                                     />
 
-                                    <TextInput style={[FormsStyles.txtInputAndroid, FormsStyles.txtInputcolorblack, (Platform.OS === 'ios') && FormsStyles.txtInputIOS]}
-                                        underlineColorAndroid="gray" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
+                                    <TextInput style={[FormsStyles.txtInputAndroid, FormsStyles.txtInputcolorpurple, (Platform.OS === 'ios') && FormsStyles.txtInputIOS]}
+                                        underlineColorAndroid="lightblue" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
 
                                         // onChange y submit
                                         onChangeText={(value) => handleChange(value, 'cp')}
@@ -181,9 +181,9 @@ export const EditScreen = () => {
                                     />
                                 </View>
 
-                                <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorblack, { width: '53%' }]}>Contraseña</Text>
-                                <TextInput style={[GlobalStyles.txtInputAndroid, FormsStyles.txtInputcolorblack, (Platform.OS === 'ios') && GlobalStyles.txtInputIOS]}
-                                    underlineColorAndroid="gray" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
+                                <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorpink, { width: '53%' }]}>Contraseña</Text>
+                                <TextInput style={[GlobalStyles.txtInputAndroid, FormsStyles.txtInputcolorpurple, (Platform.OS === 'ios') && GlobalStyles.txtInputIOS]}
+                                    underlineColorAndroid="lightblue" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
 
                                     // onChange y submit
                                     onChangeText={(value) => handleChange(value, 'password')}
@@ -192,9 +192,9 @@ export const EditScreen = () => {
 
                                 />
 
-                                <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorblack, { width: '53%' }]}>Confirmar contraseña</Text>
-                                <TextInput style={[GlobalStyles.txtInputAndroid, FormsStyles.txtInputcolorblack, (Platform.OS === 'ios') && GlobalStyles.txtInputIOS]}
-                                    underlineColorAndroid="gray" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
+                                <Text style={[GlobalStyles.label2, FormsStyles.txtInputcolorpink, { width: '53%' }]}>Confirmar contraseña</Text>
+                                <TextInput style={[GlobalStyles.txtInputAndroid, FormsStyles.txtInputcolorpurple, (Platform.OS === 'ios') && GlobalStyles.txtInputIOS]}
+                                    underlineColorAndroid="lightblue" selectionColor="rgba(85, 85, 85, 0.8)" autoCapitalize="none" autoCorrect={false}
 
                                     // onChange y submit
                                     onChangeText={(value) => handleChange(value, 'password2')}
