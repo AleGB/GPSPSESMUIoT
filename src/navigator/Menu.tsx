@@ -70,6 +70,11 @@ const MenuContent = ({ navigation }: DrawerContentComponentProps) => {
                     <Text style={MenuStyles.menuText}>Historial de ubicaciones</Text>
                 </TouchableOpacity>
 
+                <TouchableOpacity style={MenuStyles.menuButton} onPress={() => navigation.navigate('ChangePass')}>
+                    <Icon name="document-text-outline" size={20} color={"#000000"} style={{ margin: 5 }} />
+                    <Text style={MenuStyles.menuText}>Cambiar contraseña</Text>
+                </TouchableOpacity>
+
                 <TouchableOpacity style={MenuStyles.menuButton} onPress={() => {
                     outLogin(navigation);
                     // return navigation.navigate('Navigator')

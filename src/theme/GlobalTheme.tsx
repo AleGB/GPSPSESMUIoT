@@ -23,7 +23,7 @@ export const GlobalStyles = StyleSheet.create({
     },
     logoContainer: {
         width: 750,
-        height: 110
+        height: 150
     },
     iconLocation: {
         alignItems: 'center',
