@@ -12,7 +12,7 @@ export const permissionInitState: PermissionsState = {
 }
 
 type PermissionsSMSContextProps = {
-    permissions: PermissionsState;
+    permissionsSMS: PermissionsState;
     askSMSPermission: () => void;
     checkSMSPermission: () => void;
 }
@@ -24,7 +24,7 @@ export const PermissionsSMSContext = createContext({} as PermissionsSMSContextPr
 
 export const PermissionsSMSProvider = ({ children }: any) => {
 
-    const [permissions, setPermissions] = useState(permissionInitState);
+    const [permissionsSMS, setPermissions] = useState(permissionInitState);
 
     useEffect(() => {
         checkSMSPermission();
@@ -53,7 +53,7 @@ export const PermissionsSMSProvider = ({ children }: any) => {
         }
 
         setPermissions({
-            ...permissions,
+            ...permissionsSMS,
             SMSStatus: permissionStatus
         });
 
@@ -69,7 +69,7 @@ export const PermissionsSMSProvider = ({ children }: any) => {
         }
 
         setPermissions({
-            ...permissions,
+            ...permissionsSMS,
             SMSStatus: permissionStatus
         });
     }
@@ -79,7 +79,7 @@ export const PermissionsSMSProvider = ({ children }: any) => {
 
     return (
         <PermissionsSMSContext.Provider value={{
-            permissions,
+            permissionsSMS,
             askSMSPermission,
             checkSMSPermission,
         }}>

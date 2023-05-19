@@ -31,7 +31,6 @@ export const AddDeviceScreen = ({ navigation }: Props) => {
                     <View style={GlobalStyles.container}>
                         <View style={GlobalStyles.logoContainer}>
                             <LogoEncabezado />
-                            <Text style={GlobalStyles.titleEncabezado}>PSESMUIoT</Text>
                         </View>
 
                         <View style={GlobalStyles.form}>

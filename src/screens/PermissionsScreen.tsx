@@ -3,11 +3,13 @@ import { StyleSheet, Text, View } from 'react-native';
 import { PermissionsContext } from '../context/PermissionsContext';
 import { ButtonElement } from '../components/ButtonElement';
 import { GlobalStyles } from '../theme/GlobalTheme';
+import { PermissionsSMSContext } from '../context/PermissionsSMSContext';
 
 
 export const PermissionsScreen = () => {
 
     const { permissions, askLocationPermission } = useContext(PermissionsContext);
+    const { permissionsSMS, askSMSPermission } = useContext(PermissionsSMSContext);
 
 
     return (

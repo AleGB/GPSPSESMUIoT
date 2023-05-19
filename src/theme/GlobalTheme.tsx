@@ -18,12 +18,11 @@ export const GlobalStyles = StyleSheet.create({
         width: '100%',
         borderWidth: 0,
         backgroundColor: 'white',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
         alignSelf: 'center'
     },
     logoContainer: {
-        width: 750,
-        height: 150
+        justifyContent: 'center',
     },
     iconLocation: {
         alignItems: 'center',
@@ -60,9 +59,7 @@ export const GlobalStyles = StyleSheet.create({
         fontWeight: 'bold',
     },
     iconLocationEncabezado: {
-        alignItems: 'flex-end',
-        bottom: 17,
-        right: 141,
+        alignItems: 'center',
     },
     txtInputAndroid: {
         fontSize: 15,
@@ -145,5 +142,15 @@ export const GlobalStyles = StyleSheet.create({
     },
     columsTitles: {
         flexDirection: 'row',
-    }
+    },
+    titleContainer: {
+        marginBottom: 10,
+      },
+    titleDispositivos: {
+        textAlign: 'center',
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginTop: 10,
+        marginBottom: 10,
+      }
 });

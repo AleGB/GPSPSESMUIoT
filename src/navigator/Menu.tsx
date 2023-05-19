@@ -12,6 +12,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { outLogin } from '../hooks/LoginHook';
 import { LoginScreen } from '../screens/LoginScreen';
 import { MapsScreen } from '../screens/MapsScreen';
+import { DeviceScreen } from '../screens/DeviceScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -34,7 +35,7 @@ export const Menu = () => {
             <Drawer.Screen name="AddDeviceScreen" options={{ title: "Vincular dispositivo" }} component={AddDeviceScreen} />
             <Drawer.Screen name="LocationHistoryScreen" options={{ title: "Historial de ubicaciones" }} component={LocationHistoryScreen} />
             <Drawer.Screen name="MapsScreen" options={{ title: "Mapa" }} component={MapsScreen} />
-            
+            <Drawer.Screen name="DeviceScreen" options={{ title: "Dispositivo" }} component={DeviceScreen} />
         </Drawer.Navigator>
     );
 }

@@ -67,44 +67,4 @@ public class CalendarModule extends ReactContextBaseJavaModule {
                 .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
                 .emit(eventName, params);
     }
-
-
-
-    /*@ReactMethod
-    public void startSMSReader() {
-        BroadcastReceiver smsReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                Bundle bundle = intent.getExtras();
-                if (bundle != null) {
-                    Object[] pdus = (Object[]) bundle.get("pdus");
-                    if (pdus != null) {
-                        for (Object pdu : pdus) {
-                            SmsMessage sms = SmsMessage.createFromPdu((byte[]) pdu);
-                            String sender = sms.getDisplayOriginatingAddress();
-                            Log.d("CalendarModule", "Create event sender: " + sender);
-                            if (sender.equals(SMS_ORIGIN)) {
-                                String message = sms.getDisplayMessageBody();
-                                Log.d("CalendarModule", "Create event sender: " + sender
-                                        + " and message: " + message);
-                                //sendSMSReceivedEvent(sender, message);
-                            }
-                        }
-                    }
-                }
-            }
-        };
-
-        getReactApplicationContext().registerReceiver(smsReceiver, new IntentFilter("android.provider.Telephony.SMS_RECEIVED"));
-    }*/
-
-    /*private void sendSMSReceivedEvent(String sender, String message) {
-        ReactApplicationContext reactContext = getReactApplicationContext();
-        WritableMap eventData = Arguments.createMap();
-        eventData.putString("sender", sender);
-        eventData.putString("message", message);
-
-        reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                .emit(EVENT_NAME, eventData);
-    }*/
 }

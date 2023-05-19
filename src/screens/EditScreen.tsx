@@ -7,7 +7,8 @@ import { LogoEncabezado } from '../components/LogoEncabezado';
 import { FormsStyles } from '../theme/FormsTheme';
 import { ButtonElement3 } from '../components/ButtonElement2';
 import { useForm } from '../hooks/useForm';
-import { editInfo, getInfo } from '../hooks/EditHook';
+import { editInfo } from '../hooks/EditHook';
+import { getInfo } from '../hooks/getsHook';
 import { firebase } from '@react-native-firebase/auth';
 
 export const EditScreen = () => {
@@ -70,7 +71,6 @@ export const EditScreen = () => {
                         <View style={GlobalStyles.container}>
                             <View style={GlobalStyles.logoContainer}>
                                 <LogoEncabezado />
-                                <Text style={GlobalStyles.titleEncabezado}>PSESMUIoT</Text>
                             </View>
 
                             <View style={GlobalStyles.form}>

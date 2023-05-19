@@ -88,6 +88,7 @@ export const useLocation = () => {
             Geolocation.clearWatch( watchId.current );
     }
 
+    
 
     return {
         hasLocation,

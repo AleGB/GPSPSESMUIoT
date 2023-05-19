@@ -9,6 +9,7 @@ import { LoadingScreen } from '../screens/LoadingScreen';
 import { PermissionsScreen } from '../screens/PermissionsScreen';
 import { HomeScreen } from '../screens/HomeScreen';
 import { MapsScreen } from '../screens/MapsScreen';
+import { DeviceScreen } from '../screens/DeviceScreen';
 
 
 const Stack = createStackNavigator();
@@ -35,6 +36,7 @@ export const Navigator = () => {
       <Stack.Screen name="RecoverPass" component={RecoverPass} />
       <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
       <Stack.Screen name="MapsScreen" component={MapsScreen} />
+      <Stack.Screen name="DeviceScreen" component={DeviceScreen} />
     </Stack.Navigator>
   );
 }
