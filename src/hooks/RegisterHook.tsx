@@ -2,13 +2,29 @@
 import { Alert } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import firebase from '@react-native-firebase/app';
-import auth from '@react-native-firebase/auth';
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
+import React, {useState} from 'react';
+
 
 export const onRegister = async (navigation: StackNavigationProp<any, any, undefined>, formValues: any) => {
        
     auth()
         .createUserWithEmailAndPassword(formValues.correo, formValues.password)
+        .then(() => {
+            const currentUser = firebase.auth().currentUser;
+            if(currentUser){
+            currentUser.sendEmailVerification({
+                handleCodeInApp: true,
+                url: "psesmuiotproject.firebaseapp.com",
+            })
+            .then(() => {
+                Alert.alert('Envio de verificacion de correo');
+            }).catch((error: Error) => {
+                Alert.alert(error.message);
+            });
+        }
+        })
         .then(() => {
             console.log('User account created & signed in!');
             const currentUser = firebase.auth().currentUser;

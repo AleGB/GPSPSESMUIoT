@@ -11,20 +11,25 @@ import { RegisterStyles } from '../theme/RegisterTheme';
 import { FormsStyles } from '../theme/FormsTheme';
 import { useForm } from '../hooks/useForm';
 import { onRegister } from '../hooks/RegisterHook';
+import { StackNavigationProp } from '@react-navigation/stack';
 import firebase from '@react-native-firebase/app';
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 
 interface Props extends StackScreenProps<any, any> { }
 
-export const RecoverPass = ({ navigation }: Props) => {
-    const [errorCorreo, setErrorCorreo] = useState(null)
+export const ChangePass = ({ navigation }: Props) => {
+    
     const {  correo, onChange } = useForm({
 
         correo: '',
         
     });
-
+    const handleSingUp = () => {
+        const formValues = { correo }
+        onRegister(navigation, formValues);
+        // navigation.navigate('HomeScreen')
+    }
     const currentUser = firebase.auth().currentUser;
         if (currentUser) {
         firebase
@@ -38,11 +43,6 @@ export const RecoverPass = ({ navigation }: Props) => {
             });
         }
 
-    const handleSingUp = () => {
-        const formValues = { correo }
-        onRegister(navigation, formValues);
-        // navigation.navigate('HomeScreen')
-    }
 /*
     const onSubmit = () => {
         if (!validateData ()){
