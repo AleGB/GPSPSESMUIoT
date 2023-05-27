@@ -26,8 +26,8 @@ export const GlobalStyles = StyleSheet.create({
     },
     iconLocation: {
         alignItems: 'center',
-        top: 70,
-        right: 60,
+        top: 18,
+        left: 72,
     },
     titleView: {
         paddingHorizontal: 25
@@ -150,6 +150,7 @@ export const GlobalStyles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 16,
         fontWeight: 'bold',
+        color: 'black',
         marginTop: 10,
         marginBottom: 10,
       }

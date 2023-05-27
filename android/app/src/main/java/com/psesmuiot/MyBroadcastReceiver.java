@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import java.lang.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import com.google.firebase.Timestamp;
 
 
 public class MyBroadcastReceiver extends BroadcastReceiver {
@@ -40,23 +41,25 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
         String[] subcadenas = msg.split(",");
         String latitud = subcadenas[1];
         String longitud = subcadenas[2];
-        String fechaHora = ObtenerFechaHora();
-        
+        //String timestamp = ObtenerFechaHora();
+        Timestamp timestamp = Timestamp.now();
+
         latitud = convertLatitud(latitud);
         longitud = convertLongitud(longitud);
 
 
         System.out.println("Latitud: " + latitud);
         System.out.println("Longitud: " + longitud);
-        System.out.println("fechaHora: " + fechaHora);
-        Log.d(TAG, "Latitud " + latitud + " Longitud " + longitud + " fechaHora " + fechaHora);
+        //System.out.println("fechaHora: " + timestamp);
+        System.out.println("fechaHora: " + timestamp);
+        Log.d(TAG, "Latitud " + latitud + " Longitud " + longitud + " fechaHora " + timestamp);
 
         // Obtiene una referencia a la base de datos de Firebase
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Log.d(TAG, "database " + db);
 
         // Crea un nuevo objeto para el mensaje
-        Ubicacion ubicacion = new Ubicacion(latitud,longitud,fechaHora);
+        Ubicacion ubicacion = new Ubicacion(latitud,longitud,timestamp);
         String ruta = "UbicacionesDispositivo/"+mobNo+"/Coordenadas";
         Log.d(TAG, "ruta " + ruta);
 

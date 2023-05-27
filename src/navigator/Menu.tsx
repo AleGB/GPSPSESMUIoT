@@ -13,6 +13,7 @@ import { outLogin } from '../hooks/LoginHook';
 import { LoginScreen } from '../screens/LoginScreen';
 import { MapsScreen } from '../screens/MapsScreen';
 import { DeviceScreen } from '../screens/DeviceScreen';
+import { ChangePass } from '../screens/ChangePass';
 
 const Drawer = createDrawerNavigator();
 
@@ -33,6 +34,7 @@ export const Menu = () => {
             <Drawer.Screen name="HomeScreen" options={{ title: "Dispositivos registrados" }} component={HomeScreen} />
             <Drawer.Screen name="EditScreen" options={{ title: "Editar información" }} component={EditScreen} />
             <Drawer.Screen name="AddDeviceScreen" options={{ title: "Vincular dispositivo" }} component={AddDeviceScreen} />
+            <Drawer.Screen name="ChangePass" options={{ title: "Cambiar Contraseñaa" }} component={ChangePass} />
             <Drawer.Screen name="LocationHistoryScreen" options={{ title: "Historial de ubicaciones" }} component={LocationHistoryScreen} />
             <Drawer.Screen name="MapsScreen" options={{ title: "Mapa" }} component={MapsScreen} />
             <Drawer.Screen name="DeviceScreen" options={{ title: "Dispositivo" }} component={DeviceScreen} />
@@ -64,11 +66,6 @@ const MenuContent = ({ navigation }: DrawerContentComponentProps) => {
                 <TouchableOpacity style={MenuStyles.menuButton} onPress={() => navigation.navigate('AddDeviceScreen')}>
                     <Icon name="link-outline" size={20} color={"#000000"} style={{ margin: 5 }} />
                     <Text style={MenuStyles.menuText}>Vincular dispositivo</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={MenuStyles.menuButton} onPress={() => navigation.navigate('LocationHistoryScreen')}>
-                    <Icon name="document-text-outline" size={20} color={"#000000"} style={{ margin: 5 }} />
-                    <Text style={MenuStyles.menuText}>Historial de ubicaciones</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={MenuStyles.menuButton} onPress={() => navigation.navigate('ChangePass')}>

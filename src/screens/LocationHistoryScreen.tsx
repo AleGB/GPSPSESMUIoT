@@ -5,6 +5,7 @@ import { LogoEncabezado } from '../components/LogoEncabezado';
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import { getUbicacionesHistorial } from '../hooks/getsHook';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { ScrollView } from 'react-native-gesture-handler';
 
 interface Props extends DrawerScreenProps<any, any> { }
 
@@ -31,48 +32,51 @@ export const LocationHistoryScreen = ({ route, navigation }: Props) => {
         loadData();
     }, []);
 
+    console.log("ibj ubi: " + ubicaciones)
     const handleLocationPress = (latitud: string, longitud: string) => {
         // Navegar a la pantalla MapsScreen y pasar los datos de ubicación
         navigation.navigate('MapsScreen', { n_SIM: params.n_SIM, propietario: params.propietario, latitudH: latitud, longitudH: longitud });
     };
 
     return (
-        <View style={GlobalStyles.container}>
-            <View style={GlobalStyles.logoContainer}>
-                <LogoEncabezado />
+        <ScrollView style={GlobalStyles.scrollView}>
+            <View style={GlobalStyles.container}>
+                <View style={GlobalStyles.logoContainer}>
+                    <LogoEncabezado />
+                </View>
+                <View style={GlobalStyles.buttonContainerLogin}>
+                    {ubicaciones &&
+                        ubicaciones.map((ubicacion, index) => (
+                            <TouchableOpacity
+                                key={index}
+                                onPress={() =>
+                                    handleLocationPress(ubicacion.latitud, ubicacion.longitud)
+                                }
+                                style={styles.locationButton}
+                            >
+                                <View style={styles.locationContainer}>
+                                    <Text style={styles.locationText}>
+                                        {ubicacion.latitud} - {ubicacion.longitud} -{' '}
+                                        {ubicacion.fechaHora.toDate().toLocaleString()}
+                                    </Text>
+                                    <Icon name="arrow-forward" size={20} color="black" />
+                                </View>
+                            </TouchableOpacity>
+                        ))}
+                </View>
+                <TouchableOpacity
+                    onPress={() =>
+                        navigation.navigate('DeviceScreen', {
+                            n_SIM: params.n_SIM,
+                            propietario: params.propietario,
+                        })
+                    }
+                    style={styles.backButton}
+                >
+                    <Icon name="arrow-back" size={25} color="white" />
+                </TouchableOpacity>
             </View>
-            <View style={GlobalStyles.buttonContainerLogin}>
-                {ubicaciones &&
-                    ubicaciones.map((ubicacion, index) => (
-                        <TouchableOpacity
-                            key={index}
-                            onPress={() =>
-                                handleLocationPress(ubicacion.latitud, ubicacion.longitud)
-                            }
-                            style={styles.locationButton}
-                        >
-                            <View style={styles.locationContainer}>
-                                <Text style={styles.locationText}>
-                                    {ubicacion.latitud} - {ubicacion.longitud} -{' '}
-                                    {new Date(ubicacion.timestamp).toLocaleString()}
-                                </Text>
-                                <Icon name="arrow-forward" size={20} color="black" />
-                            </View>
-                        </TouchableOpacity>
-                    ))}
-            </View>
-            <TouchableOpacity
-                onPress={() =>
-                    navigation.navigate('DeviceScreen', {
-                        n_SIM: params.n_SIM,
-                        propietario: params.propietario,
-                    })
-                }
-                style={styles.backButton}
-            >
-                <Icon name="arrow-back" size={25} color="white" />
-            </TouchableOpacity>
-        </View>
+        </ScrollView>
     );
 };
 

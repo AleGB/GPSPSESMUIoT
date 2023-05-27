@@ -54,7 +54,7 @@ export const getElementsByIds = async (ids: string[]) => {
       .collection('UbicacionesDispositivo')
       .doc(idDispositivo)
       .collection('Coordenadas')
-      .orderBy('timestamp', 'desc')
+      .orderBy('fechaHora', 'desc')
       .limit(1)
       .get();
   
@@ -73,7 +73,7 @@ export const getElementsByIds = async (ids: string[]) => {
       .collection('UbicacionesDispositivo')
       .doc(idDispositivo)
       .collection('Coordenadas')
-      .orderBy('timestamp', 'desc')
+      .orderBy('fechaHora', 'desc')
       .get();
   
     const ubicaciones = querySnapshot.docs.map((document) => document.data());
