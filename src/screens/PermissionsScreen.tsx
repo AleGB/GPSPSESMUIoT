@@ -4,11 +4,13 @@ import { PermissionsContext } from '../context/PermissionsContext';
 import { ButtonElement } from '../components/ButtonElement';
 import { GlobalStyles } from '../theme/GlobalTheme';
 import { BackgroundImage } from '../components/BackgroundImage';
+import { PermissionsSMSContext } from '../context/PermissionsSMSContext';
 
 
 export const PermissionsScreen = () => {
 
     const { permissions, askLocationPermission } = useContext(PermissionsContext);
+    const { permissionsSMS, askSMSPermission } = useContext(PermissionsSMSContext);
 
 
     return (

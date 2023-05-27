@@ -26,22 +26,6 @@ public class MainActivity extends ReactActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(null);
-
-
-    // Verificar si el permiso de recibir SMS está concedido
-    /*if (checkSelfPermission(Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
-      // Solicitar permiso para recibir SMS
-      requestPermissions(new String[]{Manifest.permission.RECEIVE_SMS}, 1);
-    }*/
-    /*if (checkSelfPermission(Manifest.permission.RECEIVE_SMS) == PackageManager.PERMISSION_GRANTED) {
-      // El permiso está concedido
-      Toast.makeText(this, "El permiso de SMS está concedido", Toast.LENGTH_SHORT).show();
-      Log.d("SMSReceiver", "Permiso para recibir SMS concedido.");
-    } else {
-      // El permiso está denegado
-      Toast.makeText(this, "El permiso de SMS está denegado", Toast.LENGTH_SHORT).show();
-
-    }*/
   }
 
   /**
@@ -60,19 +44,4 @@ public class MainActivity extends ReactActivity {
         DefaultNewArchitectureEntryPoint.getConcurrentReactEnabled() // concurrentRootEnabled
         );
   }
-
-  /*@Override
-  public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    if (requestCode == 1 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-      // El permiso para recibir SMS fue concedido
-      Toast.makeText(this, "Permiso para recibir SMS concedido.", Toast.LENGTH_SHORT).show();
-      Log.d("SMSReceiver", "Permiso para recibir SMS concedido.");
-    } else {
-      // El permiso para recibir SMS fue denegado
-      Toast.makeText(this, "Permiso para recibir SMS denegado.", Toast.LENGTH_SHORT).show();
-      Log.d("SMSReceiver", "Permiso para recibir SMS denegado.");
-    }
-  }*/
-
 }

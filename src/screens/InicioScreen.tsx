@@ -38,7 +38,9 @@ export const InicioScreen = ({ navigation }: Props) => {
     }, []);
     if (initializing) return (<></>);
     // if (initializing) return null;
+    console.log("hasldkha "+user)
     if (!user) {
+        console.log("entra "+user)
         return (
             <>
                 {/* Background */}
@@ -62,8 +64,12 @@ export const InicioScreen = ({ navigation }: Props) => {
             </>
         )
     } else {
+        console.log("entra else "+user)
         return (
-            navigation.navigate('HomeScreen')
+            navigation.reset({
+                index: 0,
+                routes: [{ name: 'HomeScreen' }],
+              })
         )
     }
 

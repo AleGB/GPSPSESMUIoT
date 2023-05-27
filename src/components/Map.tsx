@@ -3,123 +3,129 @@ import MapView, { Marker, Polyline } from 'react-native-maps';
 import { useLocation } from '../hooks/useLocation';
 import { LoadingScreen } from '../screens/LoadingScreen';
 import { Fab } from './Fab';
+import { getUbicacionDispositivo } from '../hooks/getsHook';
 
-// interface Props {
-//     markers?: Marker[];
-// }
+interface Props {
+    n_SIM: string;
+    propietario: string;
+    latitudH: string;
+    longitudH: string;
+}
 
+export const Map = ({ n_SIM, propietario, latitudH, longitudH }: Props) => {
+    const [databaseLocation, setDatabaseLocation] = useState({
+        latitude: 0,
+        longitude: 0,
+    });
+    console.log("ltenviados " + latitudH + "" + longitudH)
+    const { hasLocation, userLocation, followUserLocation, stopFollowUserLocation, routeLines } = useLocation();
 
-export const Map = () => {
+    const mapViewRef = useRef<MapView>(null);
+    const following = useRef<boolean>(true);
 
-    const [ showPolyline, setShowPolyline ] = useState(true);
+    useEffect(() => {
+        if (latitudH == "" && longitudH == "") {
+            const loadData = async () => {
+                try {
+                    const dispUbicacion = await getUbicacionDispositivo(n_SIM);
+                    if (!dispUbicacion) {
+                        throw new Error("No se pudo obtener la información del dispositivo");
+                    }
+                    const { latitud, longitud } = dispUbicacion;
+                    console.log("ltbasededatos " + latitud + "" + longitud)
+                    setDatabaseLocation({
+                        latitude: convertToDecimal(latitud),
+                        longitude: convertToDecimal(longitud),
+                    });
+                } catch (error) {
+                    console.log(error);
+                }
+            };
+            loadData();
+        } else {
+            setDatabaseLocation({
+                latitude: convertToDecimal(latitudH),
+                longitude: convertToDecimal(longitudH),
+            });
+        }
+    }, [n_SIM, latitudH, longitudH]);
+
     
-    const { hasLocation,
-            initialPosition,
-            getCurrentLocation,
-            followUserLocation,
-            userLocation,
-            stopFollowUserLocation,
-            routeLines } = useLocation();
-
-    const mapViewRef = useRef<MapView>();
-    const following  = useRef<boolean>(true);
-    
-    
-
     useEffect(() => {
         followUserLocation();
         return () => {
             stopFollowUserLocation();
-        }
-    }, [])
+        };
+    }, []);
 
     useEffect(() => {
-
-        if( !following.current ) return;
-
+        if (!following.current) return;
         const { latitude, longitude } = userLocation;
         mapViewRef.current?.animateCamera({
-            center: { latitude, longitude }
+            center: { latitude, longitude },
         });
-    }, [ userLocation ])
+    }, [userLocation]);
 
+    const convertToDecimal = (coordinate: string) => {
+        const [degrees, minutes] = coordinate.split(' ');
+        const [minutesPart, secondsPart] = minutes.split('.');
+        const minutesDecimal = parseInt(minutesPart) + parseFloat(`0.${secondsPart}`);
+        let decimalCoordinate = parseInt(degrees) + minutesDecimal / 60;
+        if (coordinate.includes('S') || coordinate.includes('W')) {
+            decimalCoordinate *= -1;
+        }
+        return decimalCoordinate;
+    };
 
-    const centerPosition = async() => {
-
-        const { latitude, longitude } = await getCurrentLocation();
-        
+    const centerPosition = () => {
+        const latitude = databaseLocation.latitude;
+        const longitude = databaseLocation.longitude;
         following.current = true;
-
         mapViewRef.current?.animateCamera({
-            center: { latitude, longitude }
+            center: { latitude, longitude },
         });
+    };
+
+    if (!hasLocation) {
+        return <LoadingScreen />;
     }
-
-
-
-    if ( !hasLocation ) {
-        return <LoadingScreen/>
-    }
-
-
+    console.log(databaseLocation.latitude, databaseLocation.longitude);
     return (
         <>
             <MapView
-                ref={ (el) => mapViewRef.current = el! }
+                ref={mapViewRef}
                 style={{ flex: 1 }}
-                // provider={ PROVIDER_GOOGLE }
                 showsUserLocation
                 initialRegion={{
-                    latitude: initialPosition.latitude,
-                    longitude: initialPosition.longitude,
+                    latitude: databaseLocation.latitude,
+                    longitude: databaseLocation.longitude,
                     latitudeDelta: 0.0922,
                     longitudeDelta: 0.0421,
                 }}
-                onTouchStart={ () => following.current = false }
+                onTouchStart={() => (following.current = false)}
             >
-                {
-                    showPolyline && (
-                        <Polyline 
-                            coordinates={ routeLines }
-                            strokeColor="black"
-                            strokeWidth={ 3 }
-                        />
-                    )
-                }
+                <Polyline coordinates={routeLines} strokeColor="black" strokeWidth={3} />
 
-                {/* <Marker
-                    image={ require('../assets/custom-marker.png') }
+                <Marker
+                    image={require('../images/markerUsuaria.png')}
                     coordinate={{
-                        latitude: 37.78825,
-                        longitude: -122.4324,
+                        latitude: databaseLocation.latitude,
+                        longitude: databaseLocation.longitude,
                     }}
-                    title="Esto es un título"
-                    description="Esto es una descripción del marcador"
-                /> */}
- 
+                    title={propietario}
+                    description={"Coordenadas: " + databaseLocation.latitude + "," + databaseLocation.longitude}
+                />
             </MapView>
-            
-            <Fab 
+
+            <Fab
                 iconName="compass-outline"
-                onPress={ centerPosition }
+                onPress={centerPosition}
                 style={{
                     position: 'absolute',
                     bottom: 20,
-                    right: 20
+                    right: 20,
                 }}
             />
-
-            <Fab 
-                iconName="brush-outline"
-                onPress={ () => setShowPolyline( !showPolyline ) }
-                style={{
-                    position: 'absolute',
-                    bottom: 80,
-                    right: 20
-                }}
-            />
-
-
         </>
-    )
-}
+    );
+};

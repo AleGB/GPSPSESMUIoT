@@ -83,7 +83,7 @@ export const LoginScreen = ({ navigation }: Props) => {
                         {/* () => navigation.navigate('HomeScreen') */}
                         <View style={LoginStyles.newAcountView}>
                             <Text style={LoginStyles.passText}>¿No tienes una cuenta?</Text>
-                            <TouchableOpacity activeOpacity={0.2} onPress={() => navigation.navigate('RegisterScreen')}>
+                            <TouchableOpacity activeOpacity={0.2} onPress={() => navigation.replace('RegisterScreen')}>
                                 <Text style={LoginStyles.newAcountText}>Registrate</Text>
                             </TouchableOpacity>
                         </View>

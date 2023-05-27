@@ -10,7 +10,10 @@ export const onLogin = async (navigation: StackNavigationProp<any, any, undefine
         .signInWithEmailAndPassword(correo, password)
         .then(() => {
             console.log('User Login');
-            navigation.navigate('HomeScreen');
+            navigation.reset({
+                index: 0,
+                routes: [{ name: 'HomeScreen' }],
+              })
         })
         .catch(error => {
             if (error.code === 'auth/user-not-found') {
@@ -33,11 +36,13 @@ export const onLogin = async (navigation: StackNavigationProp<any, any, undefine
 }
 
 export const outLogin = async (navigation: DrawerNavigationHelpers) => {
-    auth()
-        .signOut()
-        .then(
-            () => console.log('User signed out!')
-        );
-    Alert.alert('Ha cerrado su sesión');
-    return navigation.navigate('LoginScreen');
-}
+    try {
+      await auth().signOut();
+      console.log('User signed out!');
+      Alert.alert('Ha cerrado su sesión');
+      navigation.navigate('Navigator');
+    } catch (error) {
+      console.log('Error signing out:', error);
+      // Manejar el error según tus necesidades
+    }
+  };
