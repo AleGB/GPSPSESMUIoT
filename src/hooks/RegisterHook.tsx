@@ -1,10 +1,10 @@
+import React, {useState} from 'react';
 // Firebase
 import { Alert } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import firebase from '@react-native-firebase/app';
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
-import React, {useState} from 'react';
 
 
 export const onRegister = async (navigation: StackNavigationProp<any, any, undefined>, formValues: any) => {

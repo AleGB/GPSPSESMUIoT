@@ -3,6 +3,8 @@ import { Alert } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import auth from '@react-native-firebase/auth';
 import { DrawerNavigationHelpers } from '@react-navigation/drawer/lib/typescript/src/types';
+import { onRegister } from '../hooks/RegisterHook';
+import firebase from '@react-native-firebase/app';
 
 export const onLogin = async (navigation: StackNavigationProp<any, any, undefined>, correo: string, password: string) => {
 
@@ -46,3 +48,15 @@ export const outLogin = async (navigation: DrawerNavigationHelpers) => {
       // Manejar el error según tus necesidades
     }
   };
+
+  export const RecoverPassFunction = (formValues:any) => {
+    firebase
+        .auth()
+        .sendPasswordResetEmail(formValues.correo)
+        .then(() => {
+        Alert.alert('Envío de correo para cambio de contraseña');
+        })
+        .catch((error: Error) => {
+        Alert.alert(error.message);
+        });
+    }

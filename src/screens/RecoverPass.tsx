@@ -14,6 +14,7 @@ import { onRegister } from '../hooks/RegisterHook';
 import firebase from '@react-native-firebase/app';
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
+import { RecoverPassFunction } from '../hooks/LoginHook';
 
 interface Props extends StackScreenProps<any, any> { }
 
@@ -25,22 +26,12 @@ export const RecoverPass = ({ navigation }: Props) => {
         
     });
 
-    const currentUser = firebase.auth().currentUser;
-        if (currentUser) {
-        firebase
-            .auth()
-            .sendPasswordResetEmail(currentUser.email || '')
-            .then(() => {
-            Alert.alert('Envío de correo para cambio de contraseña');
-            })
-            .catch((error: Error) => {
-            Alert.alert(error.message);
-            });
-        }
 
-    const handleSingUp = () => {
+
+    const handleRecoverPass = () => {
         const formValues = { correo }
-        onRegister(navigation, formValues);
+        //onRegister(navigation, formValues);
+        RecoverPassFunction(formValues);
         // navigation.navigate('HomeScreen')
     }
 /*
@@ -98,7 +89,7 @@ export const RecoverPass = ({ navigation }: Props) => {
                     </View>
 
                     <View style={GlobalStyles.buttonContainerLogin}>
-                        <ButtonElement title='Recuperar contraseña' onPress={handleSingUp} />
+                        <ButtonElement title='Recuperar contraseña' onPress={handleRecoverPass} />
                     </View>
 
                     <View style={LoginStyles.newAcountView}>
